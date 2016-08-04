@@ -1,0 +1,30 @@
+{
+  "name": "chitchat",
+  "homepage": "https://github.com/nudalight/chitchat",
+  "authors": [
+    "nudalight <nuda.light@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.8",
+    "angular": "^1.5.8",
+    "angular-locker": "^2.0.4",
+    "angular-cookies": "^1.5.8",
+    "angular-material": "^1.0.9",
+    "css-reset": "^2.5.1",
+    "moment": "^2.14.1",
+    "angular-ui-router": "^0.3.1",
+    "angular-sanitize": "^1.5.8",
+    "quickblox": "^2.1.4",
+    "jquery": "^3.1.0"
+  }
+}

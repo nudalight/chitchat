@@ -1,0 +1,47 @@
+doctype html
+html(
+  lang='eng'
+  ng-app='chitchat'
+  ng-strict-di
+)
+  head
+    meta( charset='utf-8' )
+    meta( name='viewport', content='width=device-width' )
+    title ChitChat
+    link( rel='stylesheet', href='css/vendor.min.css' )
+    link( rel='stylesheet', href='css/chat.min.css' )
+
+  body
+
+    .app
+
+      .root(
+        ui-view='chat'
+      )
+
+        .side-left(
+          ui-view='chat.left'
+        )
+          .chat-user(
+            ui-view='chatLeftUser'
+          )
+          .chat-people(
+            ui-view='chat.left.people'
+          )
+
+        .side-right(
+          ui-view='chat.right'
+        )
+          .chat-members(
+            ui-view='chat.right.members'
+          )
+          .chat-history(
+            ui-view='chat.right.history'
+          )
+          .chat-input(
+            ui-view='chat.right.input'
+          )
+
+
+    script( src='js/vendor.min.js' )
+    script( src='js/chat.min.js' )
