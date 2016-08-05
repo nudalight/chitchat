@@ -19,26 +19,26 @@ html(
         ui-view='chat'
       )
 
-        .side-left(
+        .side.left(
           ui-view='chat.left'
         )
-          .chat-user(
-            ui-view='chatLeftUser'
+          .user-bar(
+            ui-view='chat.left.user-bar'
           )
-          .chat-people(
-            ui-view='chat.left.people'
+          .dialogs(
+            ui-view='chat.left.dialogs'
           )
 
-        .side-right(
+        .side.right(
           ui-view='chat.right'
         )
-          .chat-members(
+          .members(
             ui-view='chat.right.members'
           )
-          .chat-history(
+          .history(
             ui-view='chat.right.history'
           )
-          .chat-input(
+          .input(
             ui-view='chat.right.input'
           )
 

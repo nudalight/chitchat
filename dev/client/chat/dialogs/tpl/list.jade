@@ -1,0 +1,18 @@
+.list
+  .interlayer
+    .period
+      .person(
+        ng-repeat='dialog in DIALOGS.dialogs.items'
+      )
+        .interlayer
+          .box.primary
+            .avatar
+              img(
+                src='http://placehold.it/70x70'
+
+              )
+              .status
+          .box.secondary
+            .name {{ dialog.user.full_name || "Unnamed" }}
+            .info online
+

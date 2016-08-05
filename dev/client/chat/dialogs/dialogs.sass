@@ -1,0 +1,37 @@
+.dialogs
+
+  .search
+    border: 1px solid brown
+
+
+  .list
+    .person
+      .interlayer
+        padding: .2em
+        border: 1px solid red
+        display: flex
+        align-items: center
+
+        .avatar
+          position: relative
+          border: 1px solid grey
+          height: 2.5em
+
+          img
+            +image-fix
+            border-radius: 50%
+
+
+          .status
+            position: absolute
+            right: -0.2em
+            bottom: -0.2em
+            width: .8em
+            height: .8em
+            background: green
+            border: .2em solid #fff
+            border-radius: 50%
+
+        .box
+          &.secondary
+            padding: 0 0 0 .5em

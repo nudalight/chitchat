@@ -1,0 +1,45 @@
+.app
+  height: 100%
+  position: relative
+  background: orange
+
+  .root
+    +stretch-out
+    border: 5px solid brown
+    display: flex
+
+    .side
+      height: 100%
+
+      &.left
+        flex-basis: 320px
+        min-width: 320px
+        border: 1px solid blue
+
+      &.right
+        background: green
+        position: relative
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+
+
+        > *
+          flex-basis: 100%
+
+
+          &:nth-child(1)
+            background: rgba(29, 180, 55, .4)
+            max-height: 120px
+            border: 5px solid red
+
+          &:nth-child(2)
+            border: 5px solid blue
+
+
+          &:nth-child(3)
+            height: 200px
+            border: 5px solid brown
+
+
+

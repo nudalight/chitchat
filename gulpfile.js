@@ -18,6 +18,11 @@ const rename = require('gulp-rename');
 const flatten = require('gulp-flatten');
 
 
+let jadeOpts = {
+    pretty: true
+};
+
+
 gulp.task('sass', () => {
     return gulp.src('./dev/client/chat/*/*.sass')
         .pipe(order([
@@ -40,7 +45,7 @@ gulp.task('jade', ['jade:index', 'jade:tpl']);
 gulp.task('jade:index', () => {
     return gulp.src('./dev/client/chat/_common/*.jade')
         .pipe(debug())
-        .pipe(jade())
+        .pipe(jade(jadeOpts))
         .pipe(gulp.dest('./client'))
         .pipe(connect.reload())
 });
@@ -52,7 +57,7 @@ gulp.task('jade:tpl', () => {
         '!**/_common/*'
     ])
         .pipe(debug())
-        .pipe(jade())
+        .pipe(jade(jadeOpts))
         .pipe(flatten())
         .pipe(gulp.dest('./client/tpl'))
         .pipe(connect.reload())
@@ -110,7 +115,7 @@ gulp.task('vendor:css', () => {
 gulp.task('serve', () => {
   connect.server({
     root: './client',
-    port: 3333,
+    port: 9999,
     livereload: true 
   });
 

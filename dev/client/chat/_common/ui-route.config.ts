@@ -13,23 +13,24 @@ function uiRouteConfig($stateProvider, $urlRouterProvider){
     .state('chat', {
       url: '',
       views: {
-        'chatLeftUser': {
+        'chat.left.user-bar': {
           templateUrl: './tpl/user-bar.html',
-          controller: 'userBarController'
+          controller: 'userBarController',
         },
-        'chat.left.people': {
-          templateUrl: './tpl/people.html',
-          controller: 'peopleController'
+        'chat.left.dialogs': {
+          templateUrl: './tpl/dialogs.html',
+          controller: 'dialogsController',
+          controllerAs: 'DIALOGS'
         },
-        // 'chat.right.members': {
-        //   templateUrl: './tpl/members.html'
-        // },
-        // 'chat.right.history': {
-        //   templateUrl: './tpl/history.html'
-        // },
-        // 'chat.right.input': {
-        //   templateUrl: './tpl/input.html'
-        // }
+        'chat.right.members': {
+          templateUrl: './tpl/members.html'
+        },
+        'chat.right.history': {
+          templateUrl: './tpl/history.html'
+        },
+        'chat.right.input': {
+          templateUrl: './tpl/input.html'
+        }
       }
     })
 
