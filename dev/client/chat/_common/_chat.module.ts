@@ -2,6 +2,7 @@ angular
     .module('chitchat', [
         'ngMaterial',
         'ngSanitize',
-        'ui.router'
+        'ui.router',
+        'angular-locker'
     ])
 ;
