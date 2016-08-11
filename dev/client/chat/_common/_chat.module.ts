@@ -1,8 +1,9 @@
 angular
-    .module('chitchat', [
-        'ngMaterial',
-        'ngSanitize',
-        'ui.router',
-        'angular-locker'
-    ])
+  .module('chitchat', [
+      'ngMaterial',
+      'ngSanitize',
+      'ui.router',
+      'angular-locker',
+      'ngMessages'
+  ])
 ;

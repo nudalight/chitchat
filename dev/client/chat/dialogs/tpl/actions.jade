@@ -1,5 +1,22 @@
 .actions
-  .interlayer
-    .contacts
-    .settings
-    .new-conversation
+  .interlayer(
+    flex
+    layout = 'row'
+  )
+
+    .action
+      .contacts
+        md-button.md-icon-button
+          md-icon contacts
+
+    .action
+      .settings
+        md-button.md-icon-button
+          md-icon settings
+
+    .action(
+      flex = 100
+    )
+      .new-conversation
+        md-button.md-icon-button
+          md-icon add

@@ -24,7 +24,7 @@ let jadeOpts = {
 
 
 gulp.task('sass', () => {
-    return gulp.src('./dev/client/chat/*/*.sass')
+    return gulp.src('./dev/client/chat/**/*.sass')
         .pipe(order([
             '**/_common/**'
         ]))
@@ -67,7 +67,9 @@ gulp.task('jade:tpl', () => {
 gulp.task('ts', () => {
   return gulp.src('./dev/client/chat/**/*.ts')
       .pipe(order([
-          '**/module.*'
+          '**/*module.*',
+          '**/*config.*',
+          '**/*run.'
       ]))
       .pipe(debug())
       // .pipe(insert.wrap('(function(){', '})();'))
@@ -84,6 +86,7 @@ gulp.task('vendor', ['vendor:js', 'vendor:css']);
 gulp.task('vendor:js', () => {
     let deps = bowerFiles.ext('js').files;
     deps.push('bower_components/quickblox/quickblox.min.js');
+    deps.push('bower_components/svg-assets-cache.js/svg-assets-cache.js');
 
    return gulp.src(deps)
        .pipe(order([
@@ -115,7 +118,7 @@ gulp.task('vendor:css', () => {
 gulp.task('serve', () => {
   connect.server({
     root: './client',
-    port: 9999,
+    port: 1212,
     livereload: true 
   });
 
@@ -126,7 +129,7 @@ gulp.task('serve', () => {
     gulp.watch(path + '/*.sass', ['sass']);
     gulp.watch('./gulpfile.js', gulpRestart);
 
-});
+}); 
 
 
 gulp.task('default', ['serve']);

@@ -2,12 +2,18 @@ doctype html
 html(
   lang='eng'
   ng-app='chitchat'
-  ng-strict-di
+  ng-controller='mainController as ROOT'
 )
   head
     meta( charset='utf-8' )
     meta( name='viewport', content='width=device-width' )
     title ChitChat
+
+    link(
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    )
+
     link( rel='stylesheet', href='css/vendor.min.css' )
     link( rel='stylesheet', href='css/chat.min.css' )
 
@@ -22,24 +28,31 @@ html(
         .side.left(
           ui-view='chat.left'
         )
-          .user-bar(
+          .tpl.user-bar(
             ui-view='chat.left.user-bar'
           )
-          .dialogs(
+          .tpl.dialogs(
             ui-view='chat.left.dialogs'
           )
 
         .side.right(
           ui-view='chat.right'
+          flex
+          layout = 'row'
+          layout-wrap
+          layout-align = 'end stretch'
         )
-          .members(
+          .tpl.members(
             ui-view='chat.right.members'
+            flex = 100
           )
-          .history(
+          .tpl.history(
             ui-view='chat.right.history'
+            flex = 100
           )
-          .input(
+          .tpl.input(
             ui-view='chat.right.input'
+            flex = 100
           )
 
 

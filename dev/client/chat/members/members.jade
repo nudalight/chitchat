@@ -1,26 +1,43 @@
 .members
-  .interlayer
+  .interlayer(
+    flex
+    layout = 'row'
+    layout-align = 'space-between center'
+  )
 
-    .person
+    .person(
+    )
       .box.primary
         .avatar
           img(
-            src='http://placehold.it/80x80'
+            src = 'http://placehold.it/100x100'
           )
           .status
-      .box.secondary
-        .name Test Name
-        .details ONline
+            md-icon done
 
-    .actions
-      .video d
-      .call f
-      .add-members g
+      .box.secondary(
+        flex
+
+      )
+        .name Person fullname
+        ul.details
+          li.status Участников: 139
+          li.invite Пригласить
+
+    .actions(
+    )
+      md-button.md-fab.md-mini
+        md-icon video_call
+      md-button.md-fab.md-mini
+        md-icon local_phone
+      md-button.md-fab.md-mini
+        md-icon person_add
 
   .interlayer2
     .details
       .box.primary
         .avatar
+
 
       .box.secondary
 

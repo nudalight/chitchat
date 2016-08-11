@@ -2,17 +2,21 @@
   .interlayer
     .period
       .person(
-        ng-repeat='dialog in DIALOGS.dialogs.items'
+        ng-repeat = 'dialog in DIALOGS.dialogs.items'
+        ng-click = 'DIALOGS.startDialog(dialog.user.id)'
+        ng-class = '{ "active": DIALOGS.currentDialog.opponentId == dialog.user.id }'
+        ng-if = 'DIALOGS.myId !== dialog.user.id'
       )
         .interlayer
           .box.primary
             .avatar
               img(
                 src='http://placehold.it/70x70'
-
               )
               .status
+                md-icon done
+
           .box.secondary
-            .name {{ dialog.user.full_name || "Unnamed" }}
-            .info online
+            .name {{ dialog.user.full_name || dialog.user.login || "Unnamed" }}
+            .info online > {{ DIALOGS.myId }} | {{ dialog.user.id }}
 

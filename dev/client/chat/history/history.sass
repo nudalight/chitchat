@@ -1,0 +1,54 @@
+.history:not(.tpl)
+  height: 100%
+  padding: 0 $default-section-paddings
+
+  .interlayer
+    max-height: 100%
+    height: 100%
+    overflow-y: auto
+    +h-borders(1px solid $chitchat-medium)
+
+    .container
+      max-width: 50em
+      width: 100%
+      border: 1px solid green
+      height: 100%
+      box-sizing: border-box
+
+
+    .message-group
+      position: relative
+      //border: 1px solid red
+      font-size: .9375em
+      padding: .5em 0
+
+      .time
+        position: absolute
+        right: 0
+        top: 2.7em
+        font-size: .8em
+
+      .author
+        font-size: .9em
+        font-weight: 600
+
+      .message
+        position: relative
+        max-width: 45em
+        padding: .7em
+        background: #d2dfff
+        border-radius: .15em
+
+        &.bubble::before
+          content: ''
+          position: absolute
+          top: 1em
+          left: -.15em
+          z-index: 1
+          //border: 1px solid yellow
+          +square(.6em)
+          background: #d2dfff
+          transform: rotate(-30deg) skewX(30deg)
+          border-radius: .15em
+
+

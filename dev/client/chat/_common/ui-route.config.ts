@@ -7,11 +7,24 @@ uiRouteConfig
   .$inject = ['$stateProvider', '$urlRouterProvider']
 ;
 
+
 function uiRouteConfig($stateProvider, $urlRouterProvider){
 
+  $urlRouterProvider.otherwise('/');
+
   $stateProvider
+    .state('login', {
+      url: '/login',
+      views: {
+        'chat': {
+          templateUrl: './tpl/login.html',
+          controller: 'loginController',
+          controllerAs: 'LOGIN'
+        }
+      }
+    })
     .state('chat', {
-      url: '',
+      url: '/chat',
       views: {
         'chat.left.user-bar': {
           templateUrl: './tpl/user-bar.html',
@@ -26,12 +39,18 @@ function uiRouteConfig($stateProvider, $urlRouterProvider){
           templateUrl: './tpl/members.html'
         },
         'chat.right.history': {
-          templateUrl: './tpl/history.html'
+          templateUrl: './tpl/history.html',
+          controller: 'historyController',
+          controllerAs: 'HISTORY'
         },
         'chat.right.input': {
-          templateUrl: './tpl/input.html'
+          templateUrl: './tpl/message-input.html',
+          controller: 'messageInputController',
+          controllerAs: 'MESSAGE_INPUT'
         }
       }
-    })
+    });
+
+
 
 }

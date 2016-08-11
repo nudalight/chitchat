@@ -1,11 +1,26 @@
 .history
-  .interlayer
-    .more Показать старые
-    .period
-      .date 15 апр, 2016
-      .message-group
-      .author John
-      .time Mon
-      .message
-        .content 34
-        .isEdited a1
+  .interlayer(
+    flex
+    layout = 'row'
+    layout-align = 'center start'
+  )
+
+    .container
+
+      .more Показать старые
+
+      .messages(
+        ng-repeat='msg in HISTORY.messages'
+      )
+
+        .message-group
+          .author {{ msg.sender_id }}
+          .time {{ msg.date_sent }}
+
+          .message.bubble
+            .content {{ msg.message }}
+            .isEdited isEdited
+
+
+                //.period
+                //  .date 15 апр, 2016

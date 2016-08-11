@@ -1,14 +1,13 @@
-.user-bar:not(.tpl)
-  padding: 1em 1.2em
-  border-right: 1px solid $chitchat-medium
+.dialogs
+  .list
 
-  .interlayer
-    display: flex
-    padding: 1em 0
-    align-items: center
 
-    .box
-      &.primary
+    .person
+      .interlayer
+        cursor: pointer
+        padding: .6em 1.2em
+        display: flex
+        align-items: center
 
         .avatar
           position: relative
@@ -38,9 +37,23 @@
               width: 100%
               height: 100%
 
-    .box
-      &.secondary
-        padding-left: .8em
 
-        .details
-          font-size: .8em
+
+
+        .box
+          &.secondary
+            padding: 0 0 0 .8em
+
+            .name
+              padding: .2em 0
+              color: #444
+
+            .info
+              color: #888
+              font-size: .8em
+
+      &.active
+        background: $chitchat-medium
+
+      &:hover:not(.active)
+        background: $chitchat-light

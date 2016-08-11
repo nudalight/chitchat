@@ -8,7 +8,7 @@ QBDefaultsFactory
 ;
 
 function QBDefaultsFactory(){
-
+ 
   QB.defaults = {
     appId: 44940,
     authKey: 'BbzRRPVR7TbfJbN',
@@ -16,9 +16,8 @@ function QBDefaultsFactory(){
     seshLogin: 'nudalight',
     seshPassword: '12345678'
   };
-  
-  return QB;
 
+  return QB;
 
 
 }

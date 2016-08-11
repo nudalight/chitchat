@@ -1,12 +1,67 @@
-.login
+.login(
+  flex
+)
   .interlayer(
     layout = 'column'
     layout-align = 'center center'
-    flex
+    layout-fill
   )
-    ng-form(
-      name = 'formNode'
+    form(
+      layout = 'column'
+      name = 'nodeForm'
       ng-submit = 'LOGIN.actions.login()'
     )
+
+      md-input-container
+        label Login
+        input(
+          name = 'login'
+          type = 'text'
+          ng-model = 'LOGIN.form.login'
+          required
+        )
+
+        ng-messages(
+          role = 'alert'
+          for = 'nodeForm.login.$error'
+        )
+          ng-message(
+            when = 'required'
+          ) Required
+
+      md-input-container
+        label Password
+        input(
+          name = 'password'
+          type = 'password'
+          ng-model = 'LOGIN.form.password'
+          required
+        )
+
+        ng-messages(
+          role = 'alert'
+          for = 'nodeForm.login.$error'
+        )
+          ng-message(
+            when = 'required'
+          ) Required
+
+
+      .actions(
+        layout = 'column'
+        layout-align = 'end center'
+      )
+
+        md-button.md-raised.md-primary(
+          type = 'submit'
+          ng-disabled = 'nodeForm.$invalid'
+        ) Login
+
+        .errors(
+          ng-show = 'LOGIN.errors.form.length > 0'
+        )
+          .error(
+          ) {{ LOGIN.errors.form }}
+
 
 

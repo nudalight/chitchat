@@ -4,17 +4,12 @@ angular
 ;
 
 run
-  .$inject = ['$rootScope']
+  .$inject = ['$rootScope', 'urlWatcherService']
 ;
 
 
-function run($rootScope){
-  console.log('RUN');
+function run($rootScope, urlWatcherService){
 
-  $rootScope.$on('$stateChangeStart', function(){
+  $rootScope.$on('$stateChangeStart', urlWatcherService.handle);
 
-    console.log('change start');
-
-  });
-  
 }

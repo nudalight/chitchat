@@ -6,20 +6,17 @@
     .box.primary
       .avatar
         img(
-          src='http://placehold.it/100x100'
+          src = 'http://placehold.it/100x100'
         )
         .status
+          md-icon done
+
+
 
     .box.secondary
       .name Вячеслав Бирюк
-      .details Online
+      .details(
+        data-test='ROOT.user'
+      ) Online | {{  }}
 
 
-  //.interlayer
-  //  ng-form
-  //    md-input-container
-  //      label name
-  //      input()
-  //    md-input-container
-  //      label password
-  //      input()

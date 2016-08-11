@@ -1,0 +1,36 @@
+.message-input(
+  flex
+  layout = 'row'
+  layout-align = 'center center'
+)
+
+  .interlayer(
+    flex
+  )
+
+    form(
+      ng-submit = 'MESSAGE_INPUT.sendMessage()'
+      textarea-height
+      flex
+      layout-fill
+    )
+      textarea(
+        ng-model = 'MESSAGE_INPUT.messageText'
+      )
+
+      .actions(
+        flex
+        layout = 'row'
+        layout-align = 'center center'
+      )
+        .attach
+          md-button.md-icon-button
+            md-icon attachment
+        .emoji
+          md-button.md-icon-button
+            md-icon mood
+        .send
+          md-button.md-primary.md-fab(
+            type = 'submit'
+          )
+            md-icon send 1
