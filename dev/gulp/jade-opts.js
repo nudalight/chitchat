@@ -1,3 +1,0 @@
-let jadeOpts = {
-    pretty: true
-};

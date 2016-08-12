@@ -10,17 +10,19 @@ const cleanCss = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const connect = require('gulp-connect');
 
-gulp.task('sass', () => {
+function gulpSass(){
   return gulp.src('./dev/client/chat/**/*.sass')
     .pipe(order([
         '**/_common/**'
     ]))
     .pipe(debug())
     .pipe(concat('sassify.sass'))
-    .pipe(sass())
+    .pipe(sass()) 
     .pipe(autoprefixer())
     .pipe(cleanCss())
     .pipe(rename('chat.min.css'))
     .pipe(gulp.dest('./client/css'))
     .pipe(connect.reload())
-});
+}
+
+exports.task = gulpSass;

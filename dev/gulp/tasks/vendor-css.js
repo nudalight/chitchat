@@ -10,7 +10,7 @@ const order = require('gulp-order');
 const rename = require('gulp-rename');
 
 
-gulp.task('vendor:css', () => {
+function gulpVendorCss(){
   return gulp.src(bowerFiles.ext('css').files)
     .pipe(order([
       '**/reset.css'
@@ -23,4 +23,6 @@ gulp.task('vendor:css', () => {
       restructuring: true
     }))
     .pipe(gulp.dest('./client/css'))
-});
+}
+
+exports.task = gulpVendorCss;

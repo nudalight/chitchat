@@ -4,6 +4,9 @@ const gulp = require('gulp');
 const bowerFiles = require('bower-files')();
 
 
-gulp.task('vendor:fonts', () => {
+function gulpVendorFonts(){
 
-});
+}
+
+
+exports.task = gulpVendorFonts;

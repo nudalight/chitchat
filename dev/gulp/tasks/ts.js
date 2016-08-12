@@ -11,7 +11,7 @@ const insert = require('gulp-insert');
 const sourcemaps = require('gulp-sourcemaps');
 
 
-gulp.task('ts', () => {
+function gulpTs(){
   return gulp.src('./dev/client/chat/**/*.ts')
     .pipe(sourcemaps.init())
     .pipe(order([
@@ -26,4 +26,6 @@ gulp.task('ts', () => {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./client/js'))
     .pipe(connect.reload())
-});
+}
+
+exports.task = gulpTs;

@@ -2,15 +2,19 @@
 
 const gulp = require('gulp');
 const gulpRestart = require('gulp-restart');
+const path = require('path');
+const CONF = require('../conf.js');
 
 
-gulp.task('serve', () => {
+function gulpServe(){
 
-  let path = './dev/client/chat/**';
+  let basePath = path.join(CONF.paths.devFrontend, '/**');
 
-  gulp.watch(path + '/*.ts', ['ts']);
-  gulp.watch(path + '/*.jade', ['jade']);
-  gulp.watch(path + '/*.sass', ['sass']);
+  gulp.watch(basePath + '/*.ts', ['ts']);
+  gulp.watch(basePath + '/*.jade', ['jade']);
+  gulp.watch(basePath + '/*.sass', ['sass']);
   gulp.watch('./gulpfile.js', gulpRestart);
 
-});
+}
+
+exports.task = gulpServe;
