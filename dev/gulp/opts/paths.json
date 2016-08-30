@@ -1,3 +1,4 @@
 {
-  "devFrontend": "./dev/client/chat/"
+  "devFrontend": "./dev/client/chat/",
+  "devBackend": "./dev/server"
 }

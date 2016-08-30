@@ -1,3 +1,3 @@
 'use strict';
 
-exports.dependencies = ['vendor', 'jade', 'js', 'sass'];
+exports.deps = ['vendor', 'jade', 'js', 'sass'];

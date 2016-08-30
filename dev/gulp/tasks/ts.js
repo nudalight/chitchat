@@ -9,18 +9,19 @@ const uglify = require('gulp-uglify');
 const order = require('gulp-order');
 const insert = require('gulp-insert');
 const sourcemaps = require('gulp-sourcemaps');
+const CONF = require('../conf.js');
 
 
 function gulpTs(){
-  return gulp.src('./dev/client/chat/**/*.ts')
+  return gulp.src('**/*.ts', { cwd: CONF.paths.devFrontend })
     .pipe(sourcemaps.init())
     .pipe(order([
         '**/*module.*',
-        '**/*config.*',
+        '**/*config.*', 
         '**/*run.'
     ]))
     .pipe(debug())
-    // .pipe(insert.wrap('(function(){', '})();'))
+    // .pipe(insert.wrap('(functio0n(){', '})();'))
     .pipe(concat('chat.min.js'))
     // .pipe(uglify())
     .pipe(sourcemaps.write())

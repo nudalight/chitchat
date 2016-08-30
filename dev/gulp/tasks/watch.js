@@ -6,15 +6,21 @@ const path = require('path');
 const CONF = require('../conf.js');
 
 
-function gulpServe(){
+function gulpWatch(){
 
-  let basePath = path.join(CONF.paths.devFrontend, '/**');
+  let FRONTEND = path.join(CONF.paths.devFrontend, '/**');
+  let BACKEND = path.join(CONF.paths.devBackend, '/**');
 
-  gulp.watch(basePath + '/*.ts', ['ts']);
-  gulp.watch(basePath + '/*.jade', ['jade']);
-  gulp.watch(basePath + '/*.sass', ['sass']);
+  console.log('BE:', BACKEND);
+
+  gulp.watch(FRONTEND + '/*.ts', ['ts']);
+  gulp.watch(FRONTEND + '/*.jade', ['jade']);
+  gulp.watch(FRONTEND + '/*.sass', ['sass']);
+
+  gulp.watch(BACKEND + '/*.js', ['server-files']); 
+
   gulp.watch('./gulpfile.js', gulpRestart);
 
 }
 
-exports.task = gulpServe;
+exports.task = gulpWatch;

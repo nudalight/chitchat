@@ -1,4 +1,12 @@
+# Project
 .idea
+
+
+# Dependencies
 node_modules
 bower_components
+
+
+# Compiled
 /client
+/server

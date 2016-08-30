@@ -1,3 +1,3 @@
 'use strict';
 
-exports.dependencies = ['vendor:js', 'vendor:css', 'vendor:fonts'];
+exports.deps = ['vendor-js', 'vendor-css', 'vendor-fonts'];

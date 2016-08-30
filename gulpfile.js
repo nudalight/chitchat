@@ -14,6 +14,6 @@ fs.readdirSync('./dev/gulp/tasks')
   })
   .forEach(file => gulp.task(
     file.name,
-    file.contents.dependencies,
+    file.contents.deps,
     file.contents.task
   ));

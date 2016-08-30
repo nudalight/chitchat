@@ -1,3 +1,3 @@
 'use strict';
 
-exports.dependencies = ['drop', 'serve', 'watch'];
+exports.deps = ['drop', 'serve', 'watch'];

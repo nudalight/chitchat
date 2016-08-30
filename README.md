@@ -1,10 +1,10 @@
 # ChitChat
 
 ## Description
-- JS-framework: Angular.js
-- CSS-preprocessor: Sass
-- Unit-testing: Karma, Jasmine
-- Build system: Gulp
+1. MEAN
+2. Sass
+3. Gulp (split)
+4. Karma, Jasmine
 
 ## Build
 1. bower install

@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/nudalight/chitchat#readme",
   "devDependencies": {
+    "body-parser": "^1.15.2",
     "bower-files": "^3.13.3",
+    "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean-css": "^2.0.12",
@@ -32,11 +34,8 @@
     "gulp-restart": "^0.1.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-typescript": "^2.13.6",
     "gulp-uglify": "^2.0.0",
-    "karma": "^1.1.2",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-firefox-launcher": "^1.0.0",
-    "karma-jasmine": "^1.0.2"
+    "lodash": "^4.15.0",
+    "mongoose": "^4.5.10"
   }
 }

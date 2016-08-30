@@ -12,12 +12,8 @@ const CONF = require('../conf.js');
 function gulpVendorJs(){
 
   let deps = bowerFiles.ext('js').files;
-  console.log(deps);
 
-  // deps.concat(['1.txt', '2.txt']);
-
-
-  return gulp.src(deps)
+  return gulp.src(deps.concat(CONF.vendorJs))
     .pipe(order([
        '**/angular.js'
     ]))

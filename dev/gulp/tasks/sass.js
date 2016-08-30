@@ -9,9 +9,11 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCss = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const connect = require('gulp-connect');
+const CONF = require('../conf.js');
+
 
 function gulpSass(){
-  return gulp.src('./dev/client/chat/**/*.sass')
+  return gulp.src('**/*.sass', { cwd: CONF.paths.devFrontend })
     .pipe(order([
         '**/_common/**'
     ]))
