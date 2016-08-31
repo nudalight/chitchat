@@ -11,8 +11,6 @@ function gulpWatch(){
   let FRONTEND = path.join(CONF.paths.devFrontend, '/**');
   let BACKEND = path.join(CONF.paths.devBackend, '/**');
 
-  console.log('BE:', BACKEND);
-
   gulp.watch(FRONTEND + '/*.ts', ['ts']);
   gulp.watch(FRONTEND + '/*.jade', ['jade']);
   gulp.watch(FRONTEND + '/*.sass', ['sass']);

@@ -3,7 +3,7 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const connect = require('gulp-connect');
-const typescript = require('gulp-typescript');
+// const typescript = require('gulp-typescript');
 const debug = require('gulp-debug');
 const uglify = require('gulp-uglify');
 const order = require('gulp-order');

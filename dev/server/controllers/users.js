@@ -1,23 +1,46 @@
-router.route('/users')
-  .post((req, res) => {
+'use strict';
 
-    User.create({
-      firstName: 'Peter'
-    }, err => {
+let User = require('../database/models/user');
 
-      if (err) res.send(err);
-      res.json('User created');
 
-    });
+function createUser(req, res){
+  User.create({
+    firstName: 'Peter'
+  }, err => {
 
-  })
+    if (err) res.send(err);
+    res.json('User created');
 
-  .get((req, res) => {
+  });
+}
 
-    User.find({}, (err, users) => {
-      if (err) res.send(err);
-      res.json(users);
-    });
+function getUserList(req, res){
+  User.find({}, (err, users) => {
+    if (err) res.send(err);
+    res.json(users);
+  });
+}
 
-  })
-;
+function getUser(req, res) {
+}
+
+function updateuser(req, res){
+
+}
+
+function deleteUser(req, res){
+
+}
+
+module.exports = {
+
+  // users
+  createUser: createUser,
+  getUserList: getUserList,
+
+  // users:/userId
+  getUser: getUser,
+  updateUser: updateuser,
+  deleteUser: deleteUser
+
+};
