@@ -1,0 +1,325 @@
+.register(
+  flex
+)
+  .interlayer(
+    layout = 'column'
+    layout-align = 'center center'
+    layout-fill
+  )
+
+    .steps
+      .pager
+        .interlayer
+          ul
+            li Step 1
+            li Step 2
+
+
+      .step.one(
+        ng-hide = 'REGISTER.state.step == 2'
+      )
+
+        form(
+          layout = 'column'
+          name = 'nodeFormOne'
+          ng-submit = 'REGISTER.actions.login()'
+        )
+
+
+          md-input-container
+            label First name
+            input(
+              name = 'firstName'
+              type = 'text'
+              ng-model = 'REGISTER.form.firstName'
+              ng-required = 'true'
+              valid-control
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormOne.firstName.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+              ng-message(
+                when = 'validСontrol'
+              ) validControl
+
+
+          md-input-container
+            label Last name
+            input(
+              name = 'lastName'
+              type = 'text'
+              ng-model = 'REGISTER.form.lastName'
+              ng-required = true
+              valid-control
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormOne.lastName.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+          md-input-container
+            label Phone
+            input(
+              name = 'phone'
+              type = 'tel'
+              ng-model = 'REGISTER.form.phone'
+              ng-required = 'true'
+              valid-control
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormOne.phone.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+          md-input-container
+            label Country
+            input(
+              name = 'country'
+              type = 'text'
+              ng-model = 'REGISTER.form.country'
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormOne.country.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+          md-input-container
+            label City
+            input(
+              name = 'city'
+              type = 'text'
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormOne.city.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+          md-input-container
+            label Street
+            input(
+              name = 'street'
+              type = 'text'
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormOne.street.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+            .actions
+              md-button.md-raised.md-primary(
+                type = 'submit'
+                ng-click = 'REGISTER.actions.nextStep()'
+                ng-disabled = 'nodeFormOne.$invalid'
+              ) Proceed {{ nodeFormOne.$invalid }}
+
+
+
+      .step.two(
+        ng-hide = 'REGISTER.state.step == 1'
+      )
+        form(
+          name = 'nodeFormTwo'
+        )
+
+          md-input-container
+            label Email
+            input(
+              name = 'email'
+              type = 'email'
+              ng-model = 'REGISTER.form.email'
+              required
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormTwo.email.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+          md-input-container
+            label Password
+            input(
+              name = 'password'
+              type = 'password'
+              ng-model = 'REGISTER.form.password'
+              required
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormTwo.login.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+          md-input-container
+            label Confirm password
+            input(
+              name = 'confirmPassword'
+              type = 'password'
+              ng-model = 'REGISTER.form.confirmPassword'
+              required
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormTwo.login.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+
+
+          .md-datapicker-container(
+            flex
+          )
+            label Birthday
+            md-datepicker(
+              name = 'birthday'
+              ng-model = 'REGISTER.form.birthday'
+              required = true
+              md-placeholder = 'date placholder'
+            )
+
+          .md-radio-container
+            label Employment status
+            md-radio-group(
+              ng-model = 'REGISTER.form.employmentStatus'
+            )
+              md-radio-button(
+                value = 'student'
+              ) Student
+              md-radio-button(
+                value = 'unemployed'
+              ) Unemployed
+              md-radio-button(
+                value = 'employed'
+              ) Employed
+
+
+
+          md-input-container(
+            ng-show = 'nodeFormTwo.employmentStatus == "employed" '
+          )
+            label Employment place
+            input(
+              name = 'employmentPlace'
+              ng-model = 'REGISTER.form.employmentPlace'
+              ng-required = 'nodeFormTwo.employmentStatus == "employed" '
+            )
+
+          md-input-container
+            label Annual income
+
+            md-select(
+              name = 'annualIncome'
+              ng-required = true
+              ng-model = 'REGISTER.form.annualIncome'
+            )
+              md-option(
+                value = '50-'
+              ) less than $50k / year
+              md-option(
+                value = '50-70'
+              ) $50k-$70k / year
+              md-option(
+                value = '70-90'
+              ) $70k-$90k / year
+              md-option(
+                value = '90+'
+              ) more than $90k / year
+
+
+
+          md-input-container
+            label Favourite sport
+            md-select(
+              name = 'sport'
+              ng-model = 'REGISTER.formTwo.sport'
+            )
+              md-option(
+                value = 'footbal'
+              ) Football
+              md-option(
+                value = 'basketball'
+              ) Basketball
+              md-option(
+                value = 'hockey'
+              ) Hockey
+              md-option(
+                value = 'soccer'
+              ) Soccer
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormTwo.sport.$error'
+            )
+              ng-message(
+                when = 'required'
+              )
+
+
+          md-input-container
+            md-checkbox(
+              name = 'terms'
+              ng-model = 'REGISTER.formTwo.terms'
+              aria-label = 'Accept terms'
+              required = true
+            ) Accept terms
+
+
+          .actions(
+            layout = 'column'
+            layout-align = 'end center'
+          )
+
+            md-button.md-raised.md-primary(
+              type = 'submit'
+              ng-disabled = 'nodeForm.$invalid'
+            ) Login
+
+            .errors(
+              ng-show = 'REGISTER.errors.form.length > 0'
+            )
+              .error(
+              ) {{ LOGIN.errors.form }}
+
+
+
+
+

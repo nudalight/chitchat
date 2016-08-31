@@ -18,8 +18,18 @@ function uiRouteConfig($stateProvider, $urlRouterProvider){
       views: {
         'chat': {
           templateUrl: './tpl/login.html',
-          controller: 'loginController',
+          controller: 'loginCtrl',
           controllerAs: 'LOGIN'
+        }
+      }
+    })
+    .state('register', {
+      url: '/register',
+      views: {
+        'chat': {
+          templateUrl: './tpl/register.html',
+          controller: 'registerCtrl',
+          controllerAs: 'REGISTER'
         }
       }
     })

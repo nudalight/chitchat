@@ -1,13 +1,13 @@
 angular
   .module('chitchat')
-  .controller('loginController', loginController)
+  .controller('loginCtrl', loginCtrl)
 ;
 
-loginController
+loginCtrl
   .$inject = ['$rootScope', '$scope', 'authService', '$log', 'trianglifyService']
 ;
 
-function loginController($rootScope, $scope, authService, $log, trianglifyService){
+function loginCtrl($rootScope, $scope, authService, $log, trianglifyService){
 
   var vm = this;
   

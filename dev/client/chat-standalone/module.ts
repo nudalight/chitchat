@@ -1,1 +1,0 @@
-http://davej.github.io/angular-classy/ -- use this!

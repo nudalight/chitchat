@@ -3,7 +3,6 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const connect = require('gulp-connect');
-// const typescript = require('gulp-typescript');
 const debug = require('gulp-debug');
 const uglify = require('gulp-uglify');
 const order = require('gulp-order');
@@ -13,7 +12,7 @@ const CONF = require('../conf.js');
 
 
 function gulpTs(){
-  return gulp.src('**/*.ts', { cwd: CONF.paths.devFrontend })
+  return gulp.src('**/*.js', { cwd: CONF.paths.devFrontend })
     .pipe(sourcemaps.init())
     .pipe(order([
         '**/*module.*',
