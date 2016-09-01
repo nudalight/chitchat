@@ -16,4 +16,5 @@ fs.readdirSync('./dev/gulp/tasks')
     file.name,
     file.contents.deps,
     file.contents.task
-  ));
+  ))
+;

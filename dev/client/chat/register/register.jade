@@ -8,15 +8,57 @@
   )
 
     .steps
-      .pager
+      .pager(
+        ng-show = 'REGISTER.state.step != 0'
+      )
         .interlayer
           ul
             li Step 1
             li Step 2
 
 
+      .step.zero
+
+        p Leave your email and we will send you confirmation message
+
+        form(
+          name = 'nodeFormZero'
+          ng-submit = 'REGISTER.actions.submitEmail()'
+        )
+
+          md-input-container
+            label Email
+            input(
+              name = 'email'
+              type = 'email'
+              ng-model = 'REGISTER.form.email'
+              ng-required = 'true'
+            )
+
+            ng-messages(
+              role = 'alert'
+              for = 'nodeFormOne.email.$error'
+            )
+              ng-message(
+                when = 'required'
+              ) Required
+              ng-message(
+                when = 'email'
+              ) Wrong email format
+              ng-message(
+                when = 'email-remove'
+              ) Wrong email format
+
+          .actions
+            md-button.md-raised.md-primary(
+              type = 'submit'
+              ng-disabled = 'nodeFormZero.$invalid'
+            ) Proceed {{ nodeFormZero.$invalid }}
+
+
+
       .step.one(
-        ng-hide = 'REGISTER.state.step == 2'
+        ng-hide = 'REGISTER.state.step != 1'
       )
 
         form(
@@ -44,8 +86,8 @@
                 when = 'required'
               ) Required
               ng-message(
-                when = 'validСontrol'
-              ) validControl
+                when = 'valid-control'
+              ) Must be between 2-15 letters
 
 
           md-input-container
@@ -54,7 +96,7 @@
               name = 'lastName'
               type = 'text'
               ng-model = 'REGISTER.form.lastName'
-              ng-required = true
+              ng-required = 'true'
               valid-control
             )
 
@@ -65,34 +107,44 @@
               ng-message(
                 when = 'required'
               ) Required
+              ng-message(
+                when = 'valid-control'
+              ) Must be between 2-20 letters
 
 
           md-input-container
-            label Phone
+            label Phone number
             input(
-              name = 'phone'
+              name = 'phoneNumber'
               type = 'tel'
-              ng-model = 'REGISTER.form.phone'
+              ng-model = 'REGISTER.form.phoneNumber'
               ng-required = 'true'
               valid-control
             )
 
             ng-messages(
               role = 'alert'
-              for = 'nodeFormOne.phone.$error'
+              for = 'nodeFormOne.phoneNumber.$error'
             )
               ng-message(
                 when = 'required'
               ) Required
+              ng-message(
+                when = 'valid-control'
+              ) Invalid phone number format
 
 
           md-input-container
             label Country
-            input(
+            md-select(
               name = 'country'
-              type = 'text'
               ng-model = 'REGISTER.form.country'
             )
+              md-option(
+                ng-repeat = '(country, cities) in REGISTER.regions track by $index'
+                value = '{{ country }}'
+              ) {{ country }}
+
 
             ng-messages(
               role = 'alert'
@@ -103,12 +155,19 @@
               ) Required
 
 
-          md-input-container
+
+          md-input-container(
+            ng-show = 'REGISTER.form.country'
+          )
             label City
-            input(
+            md-select(
               name = 'city'
-              type = 'text'
+              ng-model = 'REGISTER.form.city'
             )
+              md-option(
+                ng-repeat = 'city in REGISTER.regions[REGISTER.form.country] track by $index'
+                value = '{{ city }}'
+              ) {{ city }}
 
             ng-messages(
               role = 'alert'
@@ -119,7 +178,10 @@
               ) Required
 
 
-          md-input-container
+
+          md-input-container(
+            ng-show = 'REGISTER.form.city'
+          )
             label Street
             input(
               name = 'street'
@@ -135,17 +197,17 @@
               ) Required
 
 
-            .actions
-              md-button.md-raised.md-primary(
-                type = 'submit'
-                ng-click = 'REGISTER.actions.nextStep()'
-                ng-disabled = 'nodeFormOne.$invalid'
-              ) Proceed {{ nodeFormOne.$invalid }}
+          .actions
+            md-button.md-raised.md-primary(
+              type = 'submit'
+              ng-click = 'REGISTER.actions.nextStep()'
+              ng-disabled = 'nodeFormOne.$invalid'
+            ) Proceed {{ nodeFormOne.$invalid }}
 
 
 
       .step.two(
-        ng-hide = 'REGISTER.state.step == 1'
+        ng-hide = 'REGISTER.state.step != 2'
       )
         form(
           name = 'nodeFormTwo'

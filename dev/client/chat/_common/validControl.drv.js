@@ -1,6 +1,6 @@
 angular
   .module('chitchat')
-  .directive('validateControl', validControl)
+  .directive('validControl', validControl)
 ;
 
 
@@ -9,47 +9,21 @@ validControl
 ;
 
 
-// function validControl(validControlPresets){
-//   return {
-//     require: 'ngModel',
-//     link: function(scope, element, attr, ctrl){
-//
-//       function validate(value){
-//         let isValid = validControlPresets[attr.name].isValid(value);
-//         ctrl.$setValidity('validControl', isValid);
-//
-//         return value
-//       }
-//
-//       ctrl.$parsers.push(validate);
-//
-//     }
-//   }
-// }
-
-
-function validControl(validateObj, $log){
+function validControl(validControlPresets){
   return {
     require: 'ngModel',
-    link: function(scope, element, attr, mCtrl) {
+    link: function(scope, element, attr, ctrl){
 
-      function myValidation(value) {
+      function validate(value){
+        let isValid = validControlPresets[attr.name].isValid(value);
+        ctrl.$setValidity('valid-control', isValid);
 
-        var isValid = validateMe();
-        mCtrl.$setValidity('validateMe', isValid);
-
-
-        function validateMe(){
-          var result = validateObj[attr.name].isValid(value);
-          $log.log('result: ', result);
-          return result;
-        }
-
-        return value;
-
+        console.log('result: ', isValid);
+        return value
       }
 
-      mCtrl.$parsers.push(myValidation);
+      ctrl.$parsers.push(validate);
+
     }
   }
 }

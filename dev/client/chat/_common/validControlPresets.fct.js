@@ -1,4 +1,5 @@
 const validControlPresets = {
+
   username: {
     isValid: function(value){
       console.log('check validity');
@@ -53,6 +54,8 @@ const validControlPresets = {
       return /^(\d[- .]*){7,13}$/.test(value);
     }
   }
+
+
 };
 
 

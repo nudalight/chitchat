@@ -4,46 +4,57 @@ angular
 ;
 
 registerCtrl
-  .$inject = ['$rootScope', '$scope', 'authService', '$log', 'trianglifyService']
+  .$inject = ['$rootScope', '$scope', 'authService', '$log', 'trianglifyService', '$http', 'vendorData']
 ;
 
-function registerCtrl($rootScope, $scope, authService, $log, trianglifyService){
+function registerCtrl($rootScope, $scope, authService, $log, trianglifyService, $http, vendorData){
 
   var vm = this;
 
-  vm.test = 'test string1';
-
   vm.state = {
-    step: 1
+    step: 0
   };
 
   vm.form = {};
   vm.errors = {};
+  vm.regions = {};
   vm.actions = {
+    submitEmail: function(){
+      console.log(vm.form);
+      
+    },
     nextStep: function(){
-      vm.step = 2;
+      vm.state.step++;
       console.log(vm.form)
     }
   };
 
-  // $scope.$on('$viewContentLoaded', function(){
-  //   trianglifyService.generateTo('.register');
-  // });
+  init();
+
+  $scope.$on('$viewContentLoaded', function(){
+    trianglifyService.generateTo('.register');
+  });
 
 
-  function login(){
-    $log.log('login attempt');
-    authService.login(vm.form.login, vm.form.password);
+
+
+
+
+  function init(){
+
+    $http
+      .get(vendorData.urlToCountriesAndCitiesJson)
+      .then((response) => {
+
+        let middle, raw = angular.fromJson(response);
+
+        _.each(raw.data, (v, i) => {
+          vm.regions[i] = _.uniq(v);
+        });
+
+      })
+
   }
 
-
-  $rootScope.$on('QB:LOGINFAILED', function(){
-
-    $scope.$apply(function(){
-      console.log('noooooooooooooO!');
-      vm.errors.form = 'Wrong password or login name';
-    });
-
-  });
 
 }

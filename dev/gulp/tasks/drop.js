@@ -1,3 +1,3 @@
 'use strict';
 
-exports.deps = ['vendor', 'jade', 'ts', 'sass']; 
+exports.deps = ['vendor', 'jade', 'js', 'sass'];

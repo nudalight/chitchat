@@ -27,6 +27,7 @@
     "quickblox": "^2.1.4",
     "jquery": "^3.1.0",
     "trianglify": "^1.0.0",
-    "svg-assets-cache.js": "svg-assets-cache#*"
+    "svg-assets-cache.js": "svg-assets-cache#*",
+    "ng-lodash": "^0.5.0"
   }
 }

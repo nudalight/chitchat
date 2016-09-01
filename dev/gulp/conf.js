@@ -1,7 +1,7 @@
 'use strict';
 
 let pathToOpts = './dev/gulp/opts';
-
+ 
 module.exports = {
 
   jade: inq('jade'),

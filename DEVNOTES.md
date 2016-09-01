@@ -3,6 +3,8 @@ http://google.github.io/material-design-icons/
 
 mongoLab (SasS database free) https://mlab.com/plans/pricing/
 
+ClangFormat instead of .editorConfig
+
 
 toDo text:
 1. add message curse validation or use verndor lib / API

@@ -8,7 +8,7 @@ function gulpServe(){
 
   return connect.server({
     root: './client',
-    port: 1212,
+    port: 2323,
     livereload: true
   });
 

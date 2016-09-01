@@ -16,12 +16,12 @@ function urlWatcherService($state, $log, authService){
 
   self.paths = {
     authed: [
-      'chat',
+      'chat'
     ],
     notauthed: [
       'login',
       'register',
-      '',
+      ''
     ]
   };
 

@@ -29,6 +29,15 @@ function indexController(app){
     ctrl[basename] = require('./' + filename);
   });
 
+
+  router.route('/register')
+    .post(ctrl.register.processEmail)
+  ;
+
+  router.route('/register/:confirmString')
+    .get(ctrl.register.confirmEmail)
+  ;
+
   router.route('/users')
     .get(ctrl.users.getUserList)
     .post(ctrl.users.createUser)
@@ -50,6 +59,7 @@ function indexController(app){
     .put(ctrl.messages.updateMessage)
     .delete(ctrl.messages.deleteMessage)
   ;
+
 
 }
 
