@@ -1,7 +1,8 @@
 'use strict';
 
-
+const crypto = require('crypto');
 let User = require('../database/models/user');
+let HalfRegisteredUser = require('../database/models/half-registered-user');
 let mailer = require('../mailer');
 
 
@@ -14,16 +15,34 @@ function processEmail(req, res){
     if (users){
       // 1.1. если есть, то вернуть ошибку
       res.json({
-        'error': 'User with this email already exists'
+        'errors': ['User with this email already exists']
       });
 
     } else {
 
-      // SEND TO EMAIL
+      HalfRegisteredUser.create({
+        email: req.params.email,
+        registerTimestamp: new Date()
+      }, (err) => {
 
+        if (err) res.send(err);
+        res.text('success');
+
+      });
+
+
+      let msgOpts = {
+        to: req.params.email,
+        msg: 'confirm-email',
+        data: {
+          secretKey: crypto.randomBytes(20).toString()
+        }
+      };
+      
+      mailer.sendLetter(msgOpts);
+      
       res.text('success');
     }
-
   });
 }
 

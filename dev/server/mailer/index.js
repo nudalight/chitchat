@@ -1,37 +1,39 @@
 'use strict';
 
 const nodemailer = require('nodemailer');
+const mailServerConfig = require('./config');
 
-let transport = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: '',
-    pass: ''
-  }
-});
+let transport = nodemailer.createTransport(mailServerConfig);
 
-let mail = {
-  from: 'nuda4sure@gmail.com',
-  to: '',
-  subject: 'mySubject',
+let message = {
+  from: mailServerConfig.auth.user,
+  to: 'nuda.light@gmail.com',
+  subject: 'my Simple Subject',
   html: '<p>Hello, <b>World</b></p>'
 };
 
 
-transport.sendMail(mail, (err, response) => {
+let mailer = {
+  sendLetter(data){
 
-  if (err) throw err;
+    let message = {
+      from: mailServerConfig.auth.user,
+      to: data.to,
+      subject: data.subject,
+      html: html
+    };
 
-  console.log('TRANSPORTER RESPONSE:', response);
+    transport.sendMail(message, (err, response) => {
+      if (err) throw err;
 
-  transport.close();
+      console.log('TRANSPORTER RESPONSE:', response);
+      transport.close();
+    })
 
-});
-
-
-
-module.exports = {
-  sendLetter: (options) => {
-    console.log(options);
   }
 };
+
+
+
+
+module.exports = mailer;
